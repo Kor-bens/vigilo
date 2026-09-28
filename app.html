@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Vigilo — Dashboard</title>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="side">
+      <a class="brand" href="index.html"><span class="logo">V</span> Vigilo</a>
+      <nav>
+        <a class="active" href="app.html">Watchlist</a>
+        <a href="index.html">Landing</a>
+      </nav>
+    </aside>
+    <main class="main">
+      <div class="topbar">
+        <div><div class="kicker">Dashboard</div><h1 style="font-size:28px;margin:0">Pages surveillées</h1></div>
+        <button class="btn" id="scanAll">Scanner tout</button>
+      </div>
+      <div class="stats">
+        <div class="stat"><span style="color:#8b97a8;font-size:12px">Pages</span><b id="statPages">0</b></div>
+        <div class="stat"><span style="color:#8b97a8;font-size:12px">Changements</span><b id="statChanges">0</b></div>
+        <div class="stat"><span style="color:#8b97a8;font-size:12px">Stables</span><b id="statStable">0</b></div>
+        <div class="stat"><span style="color:#8b97a8;font-size:12px">Dernier scan</span><b id="statLast" style="font-size:16px">—</b></div>
+      </div>
+      <div class="panel">
+        <form class="form-row" id="addForm">
+          <input id="label" placeholder="Nom (ex. Concurrent A — pricing)" required />
+          <input id="url" type="url" placeholder="https://exemple.com/pricing" required />
+          <button class="btn btn-primary" type="submit">Ajouter</button>
+        </form>
+        <table>
+          <thead><tr><th>Page</th><th>Statut</th><th>Dernier scan</th><th></th></tr></thead>
+          <tbody id="rows"></tbody>
+        </table>
+      </div>
+      <div class="panel" style="margin-top:16px">
+        <h3>Dernier diff</h3>
+        <pre id="diffOut" class="diff" style="white-space:pre-wrap;margin-top:10px;color:#8b97a8">Ajoute une URL puis clique Scanner.</pre>
+      </div>
+    </main>
+  </div>
+  <div class="toast" id="toast"></div>
+  <script src="app.js"></script>
+</body>
+</html>
